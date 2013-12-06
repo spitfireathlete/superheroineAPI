@@ -2,10 +2,8 @@ SuperheroineAPI::Application.routes.draw do
   
   devise_for :users
   resources :users
-  authenticated :user do
-       root :to => 'api/cards#index.json', :as => :authenticated_root
-     end
-     root :to => redirect('/users/sign_in')
+  resources :tokens, :only => [:create, :destroy]
+  
    
    namespace :api do
        resources :cards
@@ -61,4 +59,9 @@ SuperheroineAPI::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  authenticated :user do
+       root :to => 'api/cards#index.json', :as => :authenticated_root
+     end
+     root :to => redirect('/users/sign_in')
 end
