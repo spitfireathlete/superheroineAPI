@@ -1,5 +1,7 @@
 module Api
+
 class CardsController < ApiController
+  include CardsHelper
   def index
     @cards = Card.all
     respond_with @cards
@@ -69,8 +71,50 @@ class CardsController < ApiController
       else
         respond_error @card.errors
     end
+     
+  end
+  
+  def favorite
+    @card = Card.find(params[:id])
+        favs = FavoriteCard.where(:user_id => current_user.id, :card_id => @card.id)
+        if not favs.empty? then
+          return head :no_content
+        end
+        
+        @fav = FavoriteCard.new(:user_id => current_user.id, :card_id => @card.id)
+        @card.num_favorites = @card.num_favorites + 1
+        
+        if @fav.save! and @card.save
+          respond_to do |format|
+            format.json { render json: @card, status: :created }
+          end
+        else
+          respond_to do |format|
+            format.json { render json: @card.errors, status: :unprocessable_entity }
+          end
+        end
+  end
+  
+  def share
+    @card = Card.find(params[:id])
     
+    shares = SharedCard.where(:user_id => current_user.id, :card_id=> @card.id)
+    if not shares.empty? then
+      return head :no_content
+    end
     
+    @shared = SharedCard.new(:user_id => current_user.id, :card_id => @card.id, :platformType => TWITTER)
+    @card.num_shares = @card.num_shares + 1
+    
+    if @shared.save! and @card.save
+      respond_to do |format|
+        format.json { render json: @card, status: :created }
+      end
+    else
+      respond_to do |format|
+        format.json { render json: @card.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
   

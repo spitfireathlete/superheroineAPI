@@ -1,5 +1,5 @@
 object @card
-attributes :id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :quotes, :created_at, :updated_at
+attributes :id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :quotes, :num_shares, :num_favorites, :created_at, :updated_at
 
 child :superheroine do
         attributes :id, :name, :display_name, :bio, :created_at, :updated_at
