@@ -4,8 +4,16 @@ SuperheroineAPI::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-   root 'users#index'
+  authenticated :user do
+       root :to => 'api/cards#index.json', :as => :authenticated_root
+     end
+     root :to => redirect('/users/sign_in')
+   
+   namespace :api do
+       resources :cards
+       resources :superheroines
+       resources :decks
+     end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
