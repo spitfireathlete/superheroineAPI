@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many :collected_cards, :through => :collected_cards, :source => :card
   has_many :favorite_cards, :through => :favorite_cards, :source => :card
   has_many :shared_cards, :through => :shared_cards, :source => :card
 end
