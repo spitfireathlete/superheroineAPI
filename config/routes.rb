@@ -1,9 +1,7 @@
 SuperheroineAPI::Application.routes.draw do
+  
   devise_for :users
   resources :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   authenticated :user do
        root :to => 'api/cards#index.json', :as => :authenticated_root
      end

@@ -40,7 +40,7 @@ class CardsController < ApiController
           
   end
   
-  def edit
+  def update
     cards = Card.where(name: card_params[:name])
     if cards.nil? or cards.empty? then
       respond_error("No card for %s exists" % card_params[:name])
@@ -48,7 +48,7 @@ class CardsController < ApiController
     end
     
     @card = cards[0]
-    @card = Card.assign_attributes(display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes])
+    @card.assign_attributes(display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes])
     
     
     superheroine = Superheroine.find_by_name(card_params[:superheroine_name])
