@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
          
   has_many :favorite_cards, :through => :favorite_cards, :source => :card
   has_many :shared_cards, :through => :shared_cards, :source => :card
-  has_many :videos, :through => :heroine_videos, :source => :video
+  
 end
