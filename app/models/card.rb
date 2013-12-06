@@ -1,3 +1,4 @@
 class Card < ActiveRecord::Base
-  has_many :videos, :through => :heroine_videos, :source => :video
+  has_many :heroine_videos
+  belongs_to :superheroine
 end

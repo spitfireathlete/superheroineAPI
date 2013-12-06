@@ -1,0 +1,7 @@
+Supergirl|Flight
+Supergirl|Super Strength
+WonderWoman|Super Strength
+WonderWoman|Enhanced Senses
+WonderWoman|Flight
+Phoenix|Enhanced Senses
+Phoenix|Flight

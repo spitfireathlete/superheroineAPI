@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206084152) do
+ActiveRecord::Schema.define(version: 20131206105955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20131206084152) do
     t.string   "name",            default: "", null: false
     t.string   "display_name",    default: "", null: false
     t.string   "title"
-    t.string   "bio"
+    t.text     "bio"
     t.string   "facts"
     t.string   "advice"
     t.string   "quotes"
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(version: 20131206084152) do
   add_index "favorite_cards", ["user_id"], name: "index_favorite_cards_on_user_id", using: :btree
 
   create_table "heroine_videos", force: true do |t|
-    t.integer  "video_link_id"
     t.integer  "card_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "video_link"
   end
 
   add_index "heroine_videos", ["card_id"], name: "index_heroine_videos_on_card_id", using: :btree
@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 20131206084152) do
   create_table "superheroines", force: true do |t|
     t.string   "name",         default: "", null: false
     t.string   "display_name", default: "", null: false
-    t.string   "bio"
+    t.text     "bio"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(version: 20131206084152) do
 
   create_table "superpowers", force: true do |t|
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
