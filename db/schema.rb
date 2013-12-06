@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206082811) do
+ActiveRecord::Schema.define(version: 20131206084152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20131206082811) do
   end
 
   add_index "favorite_cards", ["user_id"], name: "index_favorite_cards_on_user_id", using: :btree
+
+  create_table "heroine_videos", force: true do |t|
+    t.integer  "video_link_id"
+    t.integer  "card_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "heroine_videos", ["card_id"], name: "index_heroine_videos_on_card_id", using: :btree
 
   create_table "shared_cards", force: true do |t|
     t.integer  "user_id"
