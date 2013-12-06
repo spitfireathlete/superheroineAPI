@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206105955) do
+ActiveRecord::Schema.define(version: 20131206220935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,16 +21,16 @@ ActiveRecord::Schema.define(version: 20131206105955) do
     t.string   "display_name",    default: "", null: false
     t.string   "title"
     t.text     "bio"
-    t.string   "facts"
-    t.string   "advice"
-    t.string   "quotes"
+    t.text     "facts"
+    t.text     "advice"
+    t.text     "quotes"
     t.integer  "num_favorites",   default: 0,  null: false
     t.integer  "num_shares",      default: 0,  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "superheroine_id"
     t.string   "twitter_handle"
-    t.string   "goals"
+    t.text     "goals"
   end
 
   add_index "cards", ["name"], name: "index_cards_on_name", unique: true, using: :btree
