@@ -1,0 +1,2 @@
+module SuperheroinesHelper
+end
