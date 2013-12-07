@@ -55,8 +55,8 @@ puts 'Creating Superheroines'
 
 File.open(File.join(Rails.root, 'db', 'superheroines.txt'), mode = "r") do |superheroines|
     superheroines.read.each_line do |superheroine|
-      name, display_name, bio = superheroine.chomp.split("|")
-      Superheroine.where(:name => name, :display_name => display_name, :bio => bio).first_or_create
+      name, display_name, bio, image = superheroine.chomp.split("|")
+      Superheroine.where(:name => name, :display_name => display_name, :bio => bio, :image => image).first_or_create
     end
   end
   
