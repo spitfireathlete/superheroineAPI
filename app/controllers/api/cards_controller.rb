@@ -22,6 +22,7 @@ class CardsController < ApiController
     if cards.nil? or cards.empty? then
       @card = Card.new(name: card_params[:name], display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes], twitter_handle:card_params[:twitter_handle])
       
+      # superheroine
       superheroine = Superheroine.find_by_name(card_params[:superheroine_name])
       if superheroine.nil? then
         respond_error 'Could not find superheroine with name %s' % card_params[:superheroine_name]
@@ -29,22 +30,38 @@ class CardsController < ApiController
       end
       @card.superheroine_id = superheroine.id
       
+      # image 
+      image  = params[:photoData]
+      if not image.nil?
+      decoded_file = Base64.decode64(image) 
+      # voodoo http://stackoverflow.com/questions/10534575/file-upload-base64-encoded-string-in-paperclip-using-rails-3
+      begin
+        file = Tempfile.new(['test', '.jpg']) 
+        file.binmode
+        file.write decoded_file
+        file.close
+        @card.image = file
+      ensure
+        file.unlink
+      end
+    end
+      
+      # try to create
       if @card.save!
         @video = HeroineVideo.where(:card_id => @card.id, :video_link => card_params[:video_link]).first_or_create
         respond_to do |format|
           format.json { render json: @card, status: :created }
         end
         return
-        
       else
         respond_error @card.errors
         return
-      end
+      end  
       
+    
     else
       respond_error("Card for %s already exists" % card_params[:name])
     end
-          
   end
   
   def update
@@ -121,7 +138,7 @@ class CardsController < ApiController
   
   private
   def card_params
-          params.permit(:id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :superheroine_name, :video_link, :twitter_handle, :quotes)
+    params.permit(:id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :superheroine_name, :video_link, :twitter_handle, :quotes, :photoData)
   end
   
   def respond_error (message)
@@ -129,7 +146,6 @@ class CardsController < ApiController
       format.json { render json: message, status: :unprocessable_entity }
     end
   end
-  
-  
 end
+  
 end
