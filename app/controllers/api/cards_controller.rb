@@ -14,6 +14,7 @@ class CardsController < ApiController
     @card = Card.find(params[:id])
     favs = FavoriteCard.where(:user_id => current_user.id, :card_id => @card.id)
     @isFav = !favs.empty?
+    @image_url = @card.image.url
     respond_with @card
   end
   
