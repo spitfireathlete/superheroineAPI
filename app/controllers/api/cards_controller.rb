@@ -20,7 +20,7 @@ class CardsController < ApiController
   def create
     cards = Card.where(name: card_params[:name])
     if cards.nil? or cards.empty? then
-      @card = Card.new(name: card_params[:name], display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes])
+      @card = Card.new(name: card_params[:name], display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes], twitter_handle:card_params[:twitter_handle])
       
       superheroine = Superheroine.find_by_name(card_params[:superheroine_name])
       if superheroine.nil? then
@@ -55,7 +55,7 @@ class CardsController < ApiController
     end
     
     @card = cards[0]
-    @card.assign_attributes(display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes])
+    @card.assign_attributes(display_name: card_params[:display_name], title: card_params[:title], bio: card_params[:bio], facts: card_params[:facts], advice: card_params[:advice], goals: card_params[:goals], quotes: card_params[:quotes], twitter_handle:card_params[:twitter_handle])
     
     
     superheroine = Superheroine.find_by_name(card_params[:superheroine_name])
@@ -121,7 +121,7 @@ class CardsController < ApiController
   
   private
   def card_params
-          params.permit(:id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :superheroine_name, :video_link, :quotes)
+          params.permit(:id, :name, :display_name, :title, :bio, :facts, :advice, :goals, :superheroine_name, :video_link, :twitter_handle, :quotes)
   end
   
   def respond_error (message)
