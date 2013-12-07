@@ -7,4 +7,22 @@ WonderWoman|Princess Diana "Wonder Woman"|Wonder Woman, a feminist icon, fights 
 Phoenix|Jean Grey "Phoenix"|Jean Grey is a mutant born with telepathic and telekinetic powers. Her powers first manifested when she saw her childhood friend being hit by a car. She is a caring, nurturing figure, but she also has to deal with being an Omega-level mutant and the physical manifestation of the cosmic Phoenix Force.|JeanGrey.png
 #
 #
-Storm|Ororo Munroe "Storm"|A mutant that possesses the power of atmokinesis (the ability to psionically manipulate the elements of weather and other meteorological forces over vast areas). She gave up her life as a "goddess" in Africa after being invited to join the X-Men by Professor Xavier. Storm has been a mainstay and veteran member ever since and is the current Headmistress of the Jean Grey School.|Storm.png
+Storm|Ororo Munroe "Storm"|A mutant that possesses the power of atmokinesis (the ability to psionically manipulate the elements of weather and other meteorological forces over vast areas). She gave up her life as a "goddess" in Africa after being invited to join the X-Men by Professor Xavier. Storm has been a mainstay and veteran member ever since and is the current Headmistress of the Jean Grey School.|stormDone.png
+#
+#
+Cheetara|Cheetara "Thundercats"|Cheetara is the voice of reason of the Thundercats. Her super speed and precognition make her an asset on and off the battlefield. She is one of two female Thundercats.|cheetarahDone.png
+#
+#
+Chun-Li|Chun-Li "Street Fighter"|Chun-Li is the original fighting game female.|chunLiDone.png
+#
+#
+Dora the Explorer|Dora "The Explorer"|Everyone's favorite explorer.|doraDone.png
+#
+#
+Firestar|Bart Jones "Firestar"|Trained to be an assassin with her microwave manipulating mutant powers, Firestar grew to be a popular hero. She spent years as a New Warrior and Avenger, retired during Marvel's Civil War and has joined the Young Allies. Recently she has become a teacher at the Jean Grey School for Higher Learning.|firestarDone.png
+#
+#
+Huntress|Helena Bertinelli "Huntress"|Helena Bertinelli, born into one of Gotham's mafia families, became a violent vigilante destroying those that had killed her family. Though she has come more closely in line with other superheroes (after joining the Birds of Prey for instance) her methods are still harsher than most.|huntressDone.png
+#
+#
+Misty Knight|Misty Knight "Cyborg Cop"|A former New York cop with a bionic arm, martial arts skills, and an attitude. After being involved with the Heroes for Hire operation for years, she is now a part of Valkyrie's team of Defenders where Misty continues to kick butt with style and sass.|mistyDone.png

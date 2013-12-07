@@ -7,3 +7,9 @@ Phoenix|Enhanced Senses
 Phoenix|Flight
 Storm|Flight
 Storm|Weather Manipulation
+Cheetara|Super Strength
+Chun-Li|Super Strength
+Dora the Explorer|Enhanced Senses
+Firestar|Flight
+Huntress|Super Strength
+Misty Knight|Enhanced Senses
