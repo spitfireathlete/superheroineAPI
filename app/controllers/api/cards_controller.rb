@@ -4,11 +4,16 @@ class CardsController < ApiController
   include CardsHelper
   def index
     @cards = Card.all
+    @favs = current_user.favorite_cards.select(:card_id).map {|x| x.card_id}
+    logger.debug "***********"
+    puts @favs    
     respond_with @cards
   end
   
   def show
     @card = Card.find(params[:id])
+    favs = FavoriteCard.where(:user_id => current_user.id, :card_id => @card.id)
+    @isFav = !favs.empty?
     respond_with @card
   end
   
@@ -97,11 +102,6 @@ class CardsController < ApiController
   
   def share
     @card = Card.find(params[:id])
-    
-    shares = SharedCard.where(:user_id => current_user.id, :card_id=> @card.id)
-    if not shares.empty? then
-      return head :no_content
-    end
     
     @shared = SharedCard.new(:user_id => current_user.id, :card_id => @card.id, :platformType => TWITTER)
     @card.num_shares = @card.num_shares + 1
