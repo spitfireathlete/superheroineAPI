@@ -1,3 +1,5 @@
-SarahBlakely|Sarah Blakely|Founder of Spanx|Sarah Blakely bio|Sarah Blakely facts|Sarah Blakely advice|Sarah Blakely goals|Supergirl
-SerenaWilliams|Serena Williams|Founder of Spanx|Serena Williams bio|Serena Williams facts|Serena Williams advice|Serena Williams goals|WonderWoman
-IndraNooyi|Indra Nooyi|CEO Pepsi|Indra Nooyi bio|Indra Nooyi facts|Indra Nooyi advice|Indra Nooyi goals|Phoenix
+# name, display_name, title, bio, facts, advice, goals, quotes, twitter_handle alter_ego_name, video, numFavs, numShares
+#
+SarahBlakely|Sarah Blakely|Founder of Spanx|Sarah Blakely bio|Sarah Blakely facts|Sarah Blakely advice|Sarah Blakely goals|Sarah Blakely quotes|@sarahblakely|Supergirl|https://www.youtube.com/watch?v=TmFxFmrcngk|50043|23000
+Serena Williams|Pro Tennis Player|Serena Williams bio|Serena Williams facts|Serena Williams advice|Serena Williams goals||Serena Williams quotes|@serenawilliams|WonderWoman|https://www.youtube.com/watch?v=TmFxFmrcngk|100003|456301
+IndraNooyi|Indra Nooyi|CEO Pepsi|Indra Nooyi bio|Indra Nooyi facts|Indra Nooyi advice|Indra Nooyi goals|Indra Nooyi quotes|@indratwitter|Phoenix|https://www.youtube.com/watch?v=TmFxFmrcngk|50068|26758

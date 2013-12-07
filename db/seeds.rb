@@ -10,6 +10,9 @@ Superheroine.delete_all
 Superpower.delete_all
 Card.delete_all
 Deck.delete_all
+HeroineVideo.delete_all
+FavoriteCard.delete_all
+SharedCard.delete_all
 
 #############################################################################################
 
@@ -82,11 +85,15 @@ File.open(File.join(Rails.root, 'db', 'cards.txt'), mode = "r") do |cards|
       i  = i + 1
       if card.start_with?("#") then next end
       puts i
+      
         
-      name, display_name, title, bio, facts, advice, goals, alter_ego_name = card.chomp.split("|")
-    
+      name, display_name, title, bio, facts, advice, goals, quotes, twitter_handle, alter_ego_name, video, numFavs, numShares = card.chomp.split("|")
+      puts alter_ego_name
       superheroine = Superheroine.find_by_name(alter_ego_name)
-      Card.where(:name => name, :display_name => display_name, :title => title, :bio => bio, :facts => facts, :advice => advice, :goals => goals, :superheroine_id => superheroine.id, ).first_or_create
+      
+      Card.where(:name => name, :display_name => display_name, :title => title, :bio => bio, :facts => facts, :advice => advice, :goals => goals, :quotes => quotes, :twitter_handle => twitter_handle, :superheroine_id => superheroine.id, :num_favorites => numFavs, :num_shares => numShares).first_or_create
+      created = Card.find_by_name(name)
+      HeroineVideo.where(:card_id => created.id, :video_link => video).first_or_create
     end
 end
 
