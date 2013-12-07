@@ -5,3 +5,5 @@ WonderWoman|Enhanced Senses
 WonderWoman|Flight
 Phoenix|Enhanced Senses
 Phoenix|Flight
+Storm|Flight
+Storm|Weather Manipulation

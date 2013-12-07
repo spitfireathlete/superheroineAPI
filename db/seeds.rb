@@ -51,6 +51,11 @@ Superpower.where(
       name: 'Enhanced Senses',  
       description: 'The user has extremely accurate senses, allowing them to see, hear, smell, taste, and/or feel more than an average member of their species.'
     ).first_or_create
+    
+    Superpower.where(
+          name: 'Weather Manipulation',  
+          description: 'The user can generate different aspects of the weather, such as Ice, Heat, Lightning, etc'
+        ).first_or_create
 
 #############################################################################################
 
@@ -58,6 +63,7 @@ puts 'Creating Superheroines'
 
 File.open(File.join(Rails.root, 'db', 'superheroines.txt'), mode = "r") do |superheroines|
     superheroines.read.each_line do |superheroine|
+      if superheroine.start_with?("#") then next end
       name, display_name, bio, image = superheroine.chomp.split("|")
       Superheroine.where(:name => name, :display_name => display_name, :bio => bio, :image => image).first_or_create
     end
