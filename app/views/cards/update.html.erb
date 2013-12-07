@@ -1,0 +1,21 @@
+<h1>Updated!<h1>
+
+	<table>
+	  <thead>
+	    <tr>
+		<th>Id</th>
+	      <th>Name</th>
+	      <th>Title</th>
+		  <th>Photo</th>
+	    </tr>
+	  </thead>
+
+	  <tbody>
+	      <tr>
+			<td><%=@card.id%></td>
+	        <td><%=@card.name%></td>
+	        <td><%=@card.title%></td>	
+		  	<td> <%= image_tag @card.image_url.to_s %></td>  
+	      </tr>
+	  </tbody>
+	</table>

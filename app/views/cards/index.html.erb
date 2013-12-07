@@ -1,0 +1,27 @@
+<h1>Listing cards</h1>
+
+<table>
+  <thead>
+    <tr>
+	<th>Id</th>
+      <th>Name</th>
+      <th>Title</th>
+	  <th>Photo</th>
+	  <th>Edit?</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+		<td><%=card.id%></td>
+        <td><%=card.name%></td>
+        <td><%=card.title%></td>	
+	  	<td> <%= image_tag card.image_url.to_s %></td>  
+		<td><%= link_to "edit", edit_card_path(card) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

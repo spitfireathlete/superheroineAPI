@@ -2,6 +2,7 @@ SuperheroineAPI::Application.routes.draw do
   
   devise_for :users
   resources :users
+  resources :cards
   resources :tokens, :only => [:create, :destroy]
   
    
